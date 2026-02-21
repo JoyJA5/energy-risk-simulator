@@ -41,7 +41,7 @@ Acceptable risk (VaR downside ~0.3%): Maintain current positioning; continue mon
 The tool generates an Excel report with cleaned data, forecast results, and risk metrics.
 
 **Download the example report:**  
-[ava_risk_report.xlsx](reports/ava_risk_report.xlsx)
+[ava_risk_report.xlsx](ava_risk_report.xlsx)
 Contents:
 - Cleaned_Data: Processed daily demand and drivers
 - Forecast: Historical vs. forecasted demand
