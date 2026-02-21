@@ -27,10 +27,10 @@ This tool:
 ## Demo Outputs
 
 ### Demand Trend (2015–2021)
-![Avista Daily Demand & Renewable Influence](viz/ava_demand_trend.png)
+![Avista Daily Demand & Renewable Influence](ava_demand_trend.png)
 
 ### 90-Day Forecast Example
-![Avista 90-day SARIMAX Forecast](viz/ava_forecast.png)
+![Avista 90-day SARIMAX Forecast](ava_forecast.png)
 
 ### Recommended Risk Management Strategy:
 Acceptable risk (VaR downside ~0.3%): Maintain current positioning; continue monitoring renewable variability and weather drivers.
