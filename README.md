@@ -35,3 +35,15 @@ This tool:
 ### Recommended Risk Management Strategy:
 Acceptable risk (VaR downside ~0.3%): Maintain current positioning; continue monitoring renewable variability and weather drivers.
 
+
+
+# Sample Output Report
+The tool generates an Excel report with cleaned data, forecast results, and risk metrics.
+
+**Download the example report:**  
+[ava_risk_report.xlsx](reports/ava_risk_report.xlsx)
+Contents:
+- Cleaned_Data: Processed daily demand and drivers
+- Forecast: Historical vs. forecasted demand
+- Risk_Metrics: Monte Carlo weighted scenarios + 95% VaR for the 90-day horizon
+
