@@ -1,49 +1,59 @@
-# energy-risk-simulator
-Quantitative risk modeling tool for electricity demand: forecasts loads using SARIMAX, simulates probabilistic scenarios via Monte Carlo, computes VaR, and recommends demand-response / hedging strategies. Built with real EIA hourly data.
+# Energy Risk Simulator
 
+A Python-based quantitative risk modeling tool for electricity demand. It loads real hourly data from a U.S. balancing authority, forecasts loads using SARIMAX time series, runs Monte Carlo simulations for probabilistic scenario weighting, computes 95% Value at Risk (VaR), and recommends demand-response or hedging strategies.
 
-A Python-based tool for quantitative risk modeling in electricity markets, using real historical demand data to forecast loads, simulate probabilistic scenarios, compute Value at Risk (VaR), and recommend risk management strategies.
+Built as a portfolio project to demonstrate skills in quantitative risk analysis, forecasting, statistical modeling, and risk management - directly relevant to energy market and demand-side roles.
 
-Built as a portfolio project demonstrating skills relevant to quantitative risk roles in energy markets (e.g., demand-side resource strategies, statistical outcome weighting, risk hedging recommendations).
-
-## Project Overview
+## Overview
 
 This tool:
-- Loads and cleans real hourly electricity demand & generation data from a U.S. Balancing Authority (Avista Corporation – AVA, via EIA/Kaggle dataset)
-- Aggregates to daily level for stable modeling
-- Forecasts future demand using SARIMAX (with seasonal patterns and exogenous drivers: temperature proxy + renewable share)
-- Runs Monte Carlo simulations to generate thousands of possible demand paths and weight outcomes probabilistically
-- Calculates 95% Value at Risk (VaR) for downside exposure
-- Provides actionable risk management recommendations (e.g., when to activate demand-response or hedge positions)
+- Processes real EIA hourly demand and generation data (Avista balancing authority)
+- Forecasts future demand with seasonal SARIMAX (using temperature proxy + renewable share drivers)
+- Simulates thousands of demand paths via Monte Carlo
+- Calculates downside risk (95% VaR)
+- Provides actionable risk recommendations
+- Exports results and visualizations for stakeholders
 
-## Key Features
-- Real EIA data processing (hourly → daily aggregation)
-- Time-series forecasting with seasonality (SARIMAX)
-- Probabilistic risk simulation (Monte Carlo + normal-weighted averaging)
-- Downside risk metrics (95% VaR)
-- Rule-based strategy recommendations based on risk thresholds
-- Visualizations (historical trends + forecast) and Excel report export
+Goal: Help energy teams answer questions like  
+"What is the risk of demand shortfalls in the next 90 days, and when should we activate demand-response?"
+
+## Skills Demonstrated
+- Time-series forecasting (SARIMAX with exogenous variables)
+- Probabilistic modeling (Monte Carlo simulation)
+- Risk quantification (Value at Risk)
+- Python (pandas, statsmodels, matplotlib, seaborn)
+- Data visualization and reporting (plots + Excel export)
+- Analytical and problem-solving skills (interpreting risk outputs for strategy)
+
+## Data Source
+- Hourly Balancing Authority data for Avista Corporation (AVA) from U.S. Energy Information Administration (EIA)
+- Via Kaggle dataset: https://www.kaggle.com/datasets/antgoldbloom/us-eia-hourly-electricity-consumption
+- Time period: ~2015-2021 (daily aggregated for modeling)
+
+Note: Renewable generation data is sparse or zero in early years due to historical reporting gaps in public EIA data. The core demand forecasting and risk simulation remain reliable and business-relevant.
 
 ## Demo Outputs
 
-### Demand Trend (2015–2021)
-![Avista Daily Demand & Renewable Influence](ava_demand_trend.png)
+### Historical Demand Trend & Renewable Influence (2015-2021)
+![Demand Trend](ava_demand_trend.png)
 
-### 90-Day Forecast Example
-![Avista 90-day SARIMAX Forecast](ava_forecast.png)
+ ###
+Daily demand shows clear seasonal cycles - higher in winter (heating loads) and lower in summer - with noticeable year-to-year variability. The scaled renewable share (orange line) jumps sharply around 2019 and remains elevated, reflecting Avista's real-world growth in wind and solar.  
+Business insight: Increasing renewable penetration post-2019 likely raises demand variability, creating opportunities for demand-response programs to manage peaks and intermittency.
 
-### Recommended Risk Management Strategy:
-Acceptable risk (VaR downside ~0.3%): Maintain current positioning; continue monitoring renewable variability and weather drivers.
+### 90-Day SARIMAX Demand Forecast
+![90-Day Forecast](ava_forecast.png)
 
+ ###
+The forecast (red dashed line) extends the historical seasonal pattern smoothly into the future, starting near the last observed level (~1,500-1,800 MWh/day). It remains relatively stable in the short term due to the model's mean-reversion and constant exogenous drivers.  
+Business insight: Predictable seasonal demand supports proactive load management, but Monte Carlo risk layers would reveal tail risks during high-demand periods.
 
+## Sample Risk Report
+[Download ava_risk_report.xlsx](ava_risk_report.xlsx)  
+(Sheets: Cleaned_Data, Forecast, Risk_Metrics)
 
-# Sample Output Report
-The tool generates an Excel report with cleaned data, forecast results, and risk metrics.
-
-**Download the example report:**  
-[ava_risk_report.xlsx](ava_risk_report.xlsx)
-Contents:
-- Cleaned_Data: Processed daily demand and drivers
-- Forecast: Historical vs. forecasted demand
-- Risk_Metrics: Monte Carlo weighted scenarios + 95% VaR for the 90-day horizon
-
+## How to Run
+1. Clone the repo
+2. Install dependencies:
+   ```bash
+   pip install pandas numpy statsmodels matplotlib seaborn openpyxl
