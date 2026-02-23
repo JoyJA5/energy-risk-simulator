@@ -2,7 +2,6 @@
 
 A Python-based quantitative risk modeling tool for electricity demand. It loads real hourly data from a U.S. balancing authority, forecasts loads using SARIMAX time series, runs Monte Carlo simulations for probabilistic scenario weighting, computes 95% Value at Risk (VaR), and recommends demand-response or hedging strategies.
 
-Built as a portfolio project to demonstrate skills in quantitative risk analysis, forecasting, statistical modeling, and risk management - directly relevant to energy market and demand-side roles.
 
 ## Overview
 
